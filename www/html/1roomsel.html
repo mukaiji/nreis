@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Security-Policy"
+	content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+<script src="components/loader.js"></script>
+<link rel="stylesheet" href="components/loader.css">
+<link rel="stylesheet" href="../css/checkstyle.css">
+</head>
+<body>
+	<header class="site-header">
+		<h1 class="site-logo">
+			<a id="head" href="../index.html" id="header">NREIS</a>
+		</h1>
+	</header>
+	<div id="btn"
+		style="width: 100%; height: 73%; overflow: auto; text-align: center;">
+		<div id="btn"　>
+			<script type="text/javascript">
+				//最初の要素で部屋名を表示
+
+				var roomData = [ [ 0, "玄関" ], [ 1, "事務所" ], [ 2, "ひまわり" ],
+						[ 3, "ばら1組" ], [ 4, "ばら2組" ], [ 5, "ばら3組" ],
+						[ 6, "ちゅうりっぷ1組" ], [ 7, "ちゅうりっぷ2組" ],
+						[ 8, "ちゅうりっぷ3組" ], [ 9, "さくら1組" ], [ 10, "さくら2組" ],
+						[ 11, "さくら3組" ], [ 12, "廊下" ], [ 13, "職員トイレ" ],
+						[ 14, "子どもトイレ" ], [ 15, "休憩室" ], [ 16, "調乳室" ],
+						[ 17, "洗濯室" ], [ 18, "男子更衣室" ], [ 19, "女子更衣室" ], ];
+
+				for (var i = 0; i < roomData.length; i++) {
+					document
+							.write("<form action='check.html' method='get' id='formId" + i + "' name='myForm'>");
+					document.write("<input type='hidden' name='test' value='"
+							+ (roomData[i][0]) + "'>");
+					document.write("<input type='submit'");
+					document.write("class='btn'");
+					document.write("style='width:100%;height:65px'");
+					document.write(" value='" + (roomData[i][1]) + "'></form>");
+				}
+			</script>
+		</div>
+		<input type="button" class="back" value="戻る"
+			onClick="location.href='roomselect.html'"
+			style="width: 150px; height: 60px"><br>
+		<br>
+	</div>
+</body>
+</html>
