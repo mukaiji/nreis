@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+<script src="components/loader.js"></script>
+<link rel="stylesheet" href="components/loader.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+</script>
+</head>
+<body>
+<header class="site-header">
+<h1 class="site-logo">
+<a href="../index.html" id="header">NREIS</a>
+</h1> 
+</header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(function() {
+	$('.subbtn').click(function(){
+		if ( $("input[type=checkbox]:not(:checked)").size() == 0 ) {
+			location.href = 'finish.html';}
+		else{alert("すべてチェックされていません！！")}
+	});
+} );
+
+</script>
+
+<script type="text/javascript">
+
+//部屋ごとの項目(※配列の最初には部屋名が格納される)
+var koumoku = [
+               /*0*/["玄関","タッチパネル","電気","エアコン","捕虫器","モニター2台","水槽上モニター"],
+               /*1*/["事務所","電気","換気扇","空気清浄機","電気ポット","コーヒーメーカー","エアコン","窓施錠","コピー機","タブレット"],
+               /*2*/["ひまわり","電気","換気扇","エアコン","扇風機"],
+               /*3*/["ばら1組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*4*/["ばら2組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*5*/["ばら3組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*6*/["ちゅうりっぷ1組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*7*/["ちゅうりっぷ2組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*8*/["ちゅうりっぷ3組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*9*/["さくら1組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*10*/["さくら2組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*11*/["さくら3組","電気","換気扇","エアコン","床暖房","扇風機","デッキコンセント"],
+               /*12*/["廊下","窓施錠","電気"],
+               /*13*/["1回西職員トイレ","窓施錠"],
+               /*14*/["子どもトイレ","窓施錠","汚物確認","ホットウォーマーコンセント","捕虫器確認","",""],
+               /*15*/["休憩室","電気","エアコン","窓施錠","水道","",""],
+               /*16*/["調乳室","レジコンセント抜き"],
+               /*17*/["洗濯室","コンセント","水道栓","電気"],
+               /*18*/["男子更衣室","電気"],
+               /*19*/["女子更衣室","電気","窓施錠"],
+               /*20*/["遊戯室","電気","エアコン","扇風機","窓施錠"],
+               /*21*/["おひさま","電気","エアコン","換気扇","窓施錠"],
+               /*22*/["たんぽぽ1組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*23*/["たんぽぽ2組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*24*/["たんぽぽ3組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*25*/["すみれ1組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*26*/["すみれ2組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*27*/["あじさい1組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*28*/["あじさい2組","電気","エアコン","扇風機","換気扇","窓施錠"],
+               /*29*/["2階職員トイレ","窓施錠"],
+               /*30*/["2階廊下","窓施錠","電気","換気扇"],
+               /*31*/["2階非常扉","施錠"],
+               /*32*/["2階子どもトイレ","窓施錠","汚物確認"],
+               /*33*/["園庭","手洗い","足洗水道確認"],
+               /*34*/["東側駐車場","水道確認","カラーコーン"]
+            		   ];
+
+var aryNum = location.search.substring(1).split('&')[0].split('=')[1];
+console.log(aryNum)
+
+//最初の要素で部屋名を表示
+
+document.write("<h3>" + koumoku[aryNum][0] + "</h3><br>");
+document.write("<div class='chk'>");
+//項目の数だけ順番に表示
+for (var i = 1; i < koumoku[aryNum].length ; i++) {
+
+	//IDを連番に
+	document.write("<input type='checkbox' id='chk' class='chkbox"+(i+1)+"' name='chkbox"+(i+1)+"'　 >");
+
+	document.write(koumoku[aryNum][i]);
+	document.write("<br>");
+}
+
+document.write("</div><br>");
+</script>
+<script>
+document.write("備考欄");
+document.write("<input type='text'  style='width:160px;height:70px'><br>");
+</script>
+<input class="subbtn" type="button" value="送信"　 >
+<input type="button" class="back" value="戻る" onClick="location.href='roomselect.html'"style="width:150px;height:60px"><br><br>
+</body>
+</html>
