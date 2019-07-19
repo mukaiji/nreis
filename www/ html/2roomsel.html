@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="../css/checkstyle.css">
+    
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-logo">
+      <a id="header" href="../index.html" id="header">NREIS</a>
+    </h1>
+  </header>
+
+	  <div id="btn" style="width:100%;height:73%;overflow:auto;text-align:center;">
+  <div id="btn"　>
+<script type="text/javascript">
+
+ 	//最初の要素で部屋名を表示
+ 	//部屋の番号は1階と2階で共有しています
+ 	var roomData = [
+	  [20,"遊戯室"],
+	  [21,"おひさま"],
+	  [22,"たんぽぽ1組"],
+	  [23,"たんぽぽ2組"],
+	  [24,"たんぽぽ3組"],
+    [25,"すみれ1組"],
+	  [26,"すみれ2組"],
+	  [27,"あじさい1組"],
+    [28,"あじさい2組"],
+	  [29,"職員トイレ"],
+    [30,"2階廊下"],
+	  [31,"非常扉"], 
+    [32,"子どもトイレ"]
+  ];
+ 	
+ 	
+  for (var i = 0; i< roomData.length ; i++) {
+      document.write("<form action='check.html' method='get' id='formId" + i + "' name='myForm'>");
+      document.write("<input type='hidden' name='test' value='" + (roomData[i][0]) + "'>");
+      document.write("<input type='submit'");
+      document.write("class='btn'");
+      document.write("style='width:100%;height:65px'");
+      document.write(" value='" + (roomData[i][1]) + "'></form>");
+   }
+</script>
+</div>
+<input type="button" class="back" value="戻る" onClick="location.href='roomselect.html'"style="width:150px;height:60px"><br><br>
+  </div>
+ 
+</body>
+</html>
